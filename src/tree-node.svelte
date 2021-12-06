@@ -45,7 +45,7 @@
     {#if node.children}
       <div class="button" class:active={showChildren}>
         <svg focusable="false" viewBox="0 0 24 24">
-          <path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z" />
+          <path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z" class={$$props.class} />
         </svg>
       </div>
     {:else}
@@ -56,7 +56,7 @@
   {#if node.children && showChildren}
     <div class="children" transition:slide|local>
       {#each node.children as _node, i}
-        <svelte:self node={_node} index={i} let:node>
+        <svelte:self node={_node} index={i} let:node  class={$$props.class}>
           <slot {node} />
         </svelte:self>
       {/each}
